@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <script>
         let catalanLine = [1,1,2,5,14,42,132,429,1430,4862,16796];
         function shuffle(arr) {                      
             let currentIndex = arr.length, 
@@ -71,7 +61,9 @@
                 return result.sort();
 
         }
-        makeBrackets(2);
-        </script>
-</body>
-</html>
+        console.log('Скобочная последовательность из числа 2' + makeBrackets(2));
+        console.log('Скобочная последовательность из числа 3' + makeBrackets(3));
+        console.log('Скобочная последовательность из числа 0' + makeBrackets(0));
+        console.log('Скобочная последовательность из числа 11' + makeBrackets(11));
+        
+       
