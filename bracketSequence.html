@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let catalanLine = [1,1,2,5,14,42,132,429,1430,4862,16796];
+        function shuffle(arr) {                      
+            let currentIndex = arr.length, 
+                swap,
+                randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                swap = arr[currentIndex];
+                arr[currentIndex] = arr[randomIndex];
+                arr[randomIndex] = swap;
+            }            
+            return arr;
+        }        
+        function validate(str) {
+            let count = 0;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == '(') {
+                    count++;
+                } else {
+                    if (count == 0) {
+                        return false;
+                    } else {
+                        count--;
+                    }
+                }
+            }
+            if (count == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function makeBrackets(n) {
+            let result = [],
+                bracketsLength = n*2,
+                brackets = '()',
+                intermediateResult = brackets.repeat(n),
+                resultLength = catalanLine[n];                
+                console.log(resultLength);
+                result.push(intermediateResult);                
+                
+                while (result.length < resultLength) {
+                    let shuffledString = shuffle(intermediateResult.split('')).join('');
+
+                    if (validate(shuffledString)) {
+                        //проверить есть ли такой массив в результате
+                        let canPush = true;
+                        for (let i = 0; i < result.length; i++) {                            
+                            if (result[i] == shuffledString) {
+                                canPush = false;
+                            }
+                        }
+                        if (canPush) {
+                            result.push(shuffledString);
+                        }
+                    }
+
+                }
+                return result.sort();
+
+        }
+        makeBrackets(2);
+        </script>
+</body>
+</html>
