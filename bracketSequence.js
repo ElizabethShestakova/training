@@ -64,6 +64,6 @@
         console.log('Скобочная последовательность из числа 2' + makeBrackets(2));
         console.log('Скобочная последовательность из числа 3' + makeBrackets(3));
         console.log('Скобочная последовательность из числа 0' + makeBrackets(0));
-        console.log('Скобочная последовательность из числа 11' + makeBrackets(11));
+        console.log('Скобочная последовательность из числа 1' + makeBrackets(1));
         
        
